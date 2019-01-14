@@ -1,5 +1,6 @@
 package com.frank.zheng.crash_process.service;
 
+import com.alibaba.fastjson.JSON;
 import com.frank.zheng.crash_process.model.SdkLogItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,13 +18,14 @@ public class KafkaService {
     private String topicSdkLogs;
 
     @Autowired
-    private KafkaTemplate<String, SdkLogItem> kafkaTemplateForRequestLog;
+    private KafkaTemplate<String, String> kafkaTemplateForRequestLog;
 
     public void publishSdkLog(@NonNull SdkLogItem logItem) {
         try {
             //Seems the kafka library will create threads for sending
             //So here won't throw exceptions immediately
-            kafkaTemplateForRequestLog.send(topicSdkLogs, logItem);
+            String jsonStr = JSON.toJSONString(logItem);
+            kafkaTemplateForRequestLog.send(topicSdkLogs, jsonStr);
         } catch (Exception e) {
             logger.error("Failed to send the request log to kafka, ", e);
         }

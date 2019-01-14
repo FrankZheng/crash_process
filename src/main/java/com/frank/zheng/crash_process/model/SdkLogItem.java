@@ -10,6 +10,8 @@ public class SdkLogItem {
     private String bundle_id;
     private String time_zone;
     private String device_guid;
+    private String type;
+    private int batch_id;
 
     public String getDevice_timestamp() {
         return device_timestamp;
@@ -83,6 +85,21 @@ public class SdkLogItem {
         this.device_guid = device_guid;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getBatch_id() {
+        return batch_id;
+    }
+
+    public void setBatch_id(int batch_id) {
+        this.batch_id = batch_id;
+    }
 
     @Override
     public String toString() {
@@ -96,6 +113,8 @@ public class SdkLogItem {
                 ", bundle_id='" + bundle_id + '\'' +
                 ", time_zone='" + time_zone + '\'' +
                 ", device_guid='" + device_guid + '\'' +
+                ", type='" + type + '\'' +
+                ", batch_id=" + batch_id +
                 '}';
     }
 }
