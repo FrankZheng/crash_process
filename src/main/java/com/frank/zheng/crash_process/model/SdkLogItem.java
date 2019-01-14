@@ -82,4 +82,20 @@ public class SdkLogItem {
     public void setDevice_guid(String device_guid) {
         this.device_guid = device_guid;
     }
+
+
+    @Override
+    public String toString() {
+        return "SdkLogItem{" +
+                "device_timestamp='" + device_timestamp + '\'' +
+                ", log_level='" + log_level + '\'' +
+                ", context='" + context + '\'' +
+                ", log_message='" + log_message + '\'' +
+                ", event_id='" + event_id + '\'' +
+                ", sdk_user_agent='" + sdk_user_agent + '\'' +
+                ", bundle_id='" + bundle_id + '\'' +
+                ", time_zone='" + time_zone + '\'' +
+                ", device_guid='" + device_guid + '\'' +
+                '}';
+    }
 }

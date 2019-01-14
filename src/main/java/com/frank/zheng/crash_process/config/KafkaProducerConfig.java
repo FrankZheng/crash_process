@@ -15,9 +15,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaConfig {
+public class KafkaProducerConfig {
 
-    @Value("${kafka.producer.servers}")
+    @Value("${kafka.servers}")
     private String servers;
 
     @Value("${kafka.producer.retries}")
